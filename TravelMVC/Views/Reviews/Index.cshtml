@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TravelMVC.Models.Review>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Traveler Reviews!</h1>
+
+<div class="jumbotron2">
+    <h1>Ohio Attractions!</h1>
+    <h2 class="lead">Your resource for reviews of Ohio amusements and attractions</h2>
+    <p><a href="http://ohio.org" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Attraction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TravelerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReviewDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Attraction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TravelerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReviewDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReviewID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewID })
+        </td>
+    </tr>
+}
+
+</table>
